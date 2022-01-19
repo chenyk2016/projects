@@ -9,12 +9,10 @@ import React, { useState, useMemo } from 'react';
 let times = 0;
 function Input() {
   console.log('times-test:', times++); // 输入框变化时触发一次times递增2
-  console.log('times-test:', 1); // 输入框变化时触发一次
 
   const [_value, _setValue] = useState('');
   const _onChange = useMemo(() => {
-
-    console.log('do useMemo');
+    console.log('times-test: do useMemo');
 
     return (e) => {
       console.log(e);

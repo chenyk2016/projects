@@ -1,0 +1,8 @@
+<web-view
+  key="{{key}}"
+  src="{{url}}"
+  bindload="onPageLoad"
+  bindmessage="onPageMessage"
+  binderror="onPageLoadError"
+>
+</web-view>

@@ -1,0 +1,9 @@
+<view>
+  <view bindtap="openWebview">
+    <text>webview bridge页面</text>
+  </view>
+
+  <view bindtap="openKeyboardFix">
+    <text>键盘弹起fix</text>
+  </view>
+</view>

@@ -47,6 +47,9 @@ class App extends React.Component {
 
         <div>
           <span>memo-input:</span>
+          <p>性能最好的实现</p>
+          <p>1. 在useEffect对比数据变化，避免多次render</p>
+          <p>2. memo 避免不必要的父组件状态变化引起的render</p>
           <MemoInput value={value} onChange={this.onChange} />
         </div>
 

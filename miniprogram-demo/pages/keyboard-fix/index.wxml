@@ -1,0 +1,50 @@
+<view class="page">
+  使用 adjust-position always-embed cursor-spacing 属性即可使输入框自动调整。
+
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="1" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="2" class="input" placeholder="输入框"></input>
+  <input value="adjust-position" 	adjust-position="false" class="input" placeholder="输入框"></input>
+  <input value="always-embed" always-embed class="input" placeholder="输入框"></input>
+  <input value="2" cursor-spacing="20" class="input" placeholder="输入框"></input>
+
+</view>

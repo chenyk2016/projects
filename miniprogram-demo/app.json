@@ -1,0 +1,8 @@
+{
+  "pages": [
+    "pages/keyboard-fix/index",
+    "pages/index/index",
+    "pages/web-view/index"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

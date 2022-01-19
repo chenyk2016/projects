@@ -1,0 +1,25 @@
+.page{
+  background: #fff;
+  word-break: break-all;
+  position: fixed;
+  top: 50rpx;
+  left: 0;
+  right: 0;
+  bottom: 100rpx;
+  overflow: scroll;
+}
+
+.fixed-page-yellow {
+  position: fixed;
+  top: 20rpx;
+  right: 0;
+  width: 20rpx;
+  bottom: 200rpx;
+  background: yellow;
+}
+
+.vh-page-blue {
+  height: 100vh;
+  width: 20rpx;
+  background: blue;
+}
