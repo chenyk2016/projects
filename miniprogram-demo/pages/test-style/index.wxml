@@ -1,0 +1,5 @@
+<view class="text-style-page">
+  {{text}}
+
+  <comp1 />
+</view>

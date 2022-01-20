@@ -1,9 +1,9 @@
-<view>
-  <view bindtap="openWebview">
+<view class="index-page">
+  <view class="item" bindtap="openWebview">
     <text>webview bridge页面</text>
   </view>
 
-  <view bindtap="openKeyboardFix">
-    <text>键盘弹起fix</text>
+  <view class="item" wx:for="{{pages}}" data-path="{{item}}" wx:key="item" bindtap="openPath">
+    {{index}}: {{item}}
   </view>
 </view>

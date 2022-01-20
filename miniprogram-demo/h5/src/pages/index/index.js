@@ -1,6 +1,6 @@
 import qs from 'qs'
-import UA from '../utils/ua'
-import bridge from '../utils/wx_bridge'
+import UA from '../../utils/ua'
+import bridge from '../../utils/wx_bridge'
 
 document.querySelector('#root').innerHTML = `
   <h2>web-view bridge功能测试</h2>

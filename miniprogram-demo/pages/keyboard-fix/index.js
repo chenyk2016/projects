@@ -1,4 +1,4 @@
-const qs = require('../utils/qs')
+const qs = require('../../utils/qs')
 
 Page({
   initLoad: false,

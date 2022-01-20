@@ -1,0 +1,13 @@
+.text-style-page .comp-1 {
+  background: #ccc;
+}
+
+/* ~ 修改子组件的样式 */
+.text-style-page .page-class {
+  background: blue;
+}
+
+/* ^ 修改子组件的样式 */
+.text-style-page .parent-class {
+  background: yellow;
+}

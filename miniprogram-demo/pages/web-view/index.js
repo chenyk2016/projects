@@ -1,5 +1,5 @@
-const qs = require('../utils/qs')
-// var tools = require('../utils/tools')
+const qs = require('../../utils/qs')
+
 Page({
   initLoad: false,
   h5Ready: false,

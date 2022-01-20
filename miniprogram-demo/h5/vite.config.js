@@ -3,15 +3,18 @@ const { defineConfig } = require('vite')
 
 module.exports = defineConfig({
     // config options
-    // root: './h5',
+    root: './src/pages/',
     server: {
         https: 'true'
     },
     build: {
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                test: resolve(__dirname, 'test/index.html')
+                index: resolve(__dirname, 'src/pages/index/index.html'),
+                test: resolve(__dirname, 'src/pages/test/index.html')
+            },
+            output: {
+                dir: "dist",
             }
         }
     }
