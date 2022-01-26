@@ -137,5 +137,8 @@ Page({
   getMessageFromH5(action, params) {
     // alert(`${action + JSON.stringify(params)}`)
     console.log('h5_to_mini',action, params);
+
+    // f
+    this.postMessageToH5('callback', 'success')
   }
 })
