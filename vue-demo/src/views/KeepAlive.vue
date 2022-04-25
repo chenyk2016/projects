@@ -1,10 +1,15 @@
 <template>
-  <div class="">test1</div>
+  <div>
+    keep-alive 的二层组件
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'test1',
+  name: 'alive',
   activated() {
     console.log('activated');
   },
@@ -13,3 +18,7 @@ export default {
   },
 }
 </script>
+
+<style>
+
+</style>
