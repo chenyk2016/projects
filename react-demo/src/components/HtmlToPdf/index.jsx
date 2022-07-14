@@ -32,11 +32,6 @@ export default function () {
 
         const contentWidth = canvas.width
         const contentHeight = canvas.height
-        console.log( contentWidth, contentHeight );
-
-
-
-
         // 一页pdf显示html页面生成的canvas高度;
         const pageHeight = (contentWidth / outPage.width) * outPage.height
         // 未生成pdf的html页面高度
@@ -48,9 +43,8 @@ export default function () {
         const imgHeight = (outPage.width / contentWidth) * contentHeight
 
         const pageData = canvas.toDataURL('image/jpeg', 1.0)
-        console.log(pageData)
         // a4纸纵向，一般默认使用；new JsPDF('landscape'); 横向页面
-        const PDF = new JsPDF('', 'pt', 'a4')
+        const PDF = new JsPDF('p', 'pt', 'a4')
 
         // 当内容未超过pdf一页显示的范围，无需分页
         if (leftHeight < pageHeight) {
@@ -81,21 +75,21 @@ export default function () {
       <Button onClick={toPdf}>导出pdf</Button>
       <div id="page-cont">
         {
-          new Array(100).fill('').map((item, index) => {
+          new Array(20).fill('').map((item, index) => {
             return <div key={index}> hhhhhh{ index }</div>
           })
         }
-        {/* {
-          new Array(20).fill('').map((item, index) => {
+        {
+          new Array(2).fill('').map((item, index) => {
             return <img key={index} className="middle-image" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84d15577dff14b488c086e0b3691ba9e~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?" alt="" />
           })
         }
 
         {
-          new Array(20).fill('').map((item, index) => {
+          new Array(2).fill('').map((item, index) => {
             return <Chart key={index} id={index} />
           })
-        } */}
+        }
 
       </div>
     </div>

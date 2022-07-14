@@ -7,8 +7,8 @@ export default function () {
 
   useEffect(() => {
     const canvas = document.getElementById('canvas')
-    const text = '水印';
-    const  textMargin = 100; // 水印间距
+    const text = '水印(20201000)';
+    const  textMargin = 40; // 水印间距
     const  width = canvas.width;
     const  height = canvas.height;
 
@@ -18,15 +18,15 @@ export default function () {
 
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.font = '40px Microsoft Yahei';
+    ctx.font = '14px Microsoft Yahei';
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     const textW = ctx.measureText(text).width;
 
     for (let i = textW/2; i < width; i += (textW + textMargin)) {
-      for(let j = 0; j < height; j += textW + textMargin) {
+      for(let j = 0; j < height; j += (textW + textMargin) / 2) {
         ctx.save();
         ctx.translate(i, j);
-        ctx.rotate(Math.PI / 180 * 45);
+        ctx.rotate(Math.PI / 180 * 25);
         ctx.fillText(text, 0, 0);
         ctx.restore();
       };

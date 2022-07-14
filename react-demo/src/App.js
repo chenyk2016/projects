@@ -8,15 +8,21 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      {/* <Test /> */}
+      <h2>Test</h2>
+      <Test />
+      <br /><br />
 
-      {/* <TreeEdit /> */}
+      <h2> TreeEdit </h2>
+      <TreeEdit />
+      <br /><br />
 
+      <h2> HtmlToPdf </h2>
       <HtmlToPdf />
 
-      {/* 水印 */}
-      {/* <WaterMark /> */}
-      <br />
+      <h2>水印</h2>
+      <WaterMark />
+      <br /><br />
+
     </div>
   );
 }

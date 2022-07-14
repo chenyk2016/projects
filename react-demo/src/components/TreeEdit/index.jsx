@@ -1,81 +1,152 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tree, Tooltip, Input } from 'antd';
 import './index.css';
 
+const treeDate = [
+  {
+    title: '1',
+    key: '1',
+    children: [
+      {
+        title: '1-1',
+        key: '1-1',
+      },
+      {
+        title: '1-2',
+        key: '1-2',
+      },
+      {
+        title: '1-3',
+        key: '1-3',
+      },
+    ]
+  },
+  {
+    title: '2',
+    key: '2',
+    children: [
+      {
+        title: '2-1',
+        key: '2-1',
+      },
+      {
+        title: '2-2',
+        key: '2-2',
+      },
+      {
+        title: '2-3',
+        key: '2-3',
+      },
+    ]
+  },
+]
+
+const expandedKeys = treeDate.reduce((res, item) => {
+  res.push(item.key);
+  return res;
+}, [])
+
 export default function TreeEdit() {
+  const [gDate, setGDate] = useState(treeDate);
+
+  const onDrop = (info) => {
+    console.log(info);
+    const dropKey = info.node.key;
+    const dragKey = info.dragNode.key;
+    const dropPos = info.node.pos.split('-');
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
+
+    // TODO 不允许跨级拖动
+    const dragPos = info.dragNode.pos.split('-');
+    if(dropPos.length !== dragPos.length) {
+      console.warn('不允许跨级拖动');
+      return ;
+    }
+
+    const loop = (data, key, callback) => {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].key === key) {
+          return callback(data[i], i, data);
+        }
+
+        if (data[i].children) {
+          loop(data[i].children, key, callback);
+        }
+      }
+    };
+
+    const data = [...gDate]; // Find dragObject
+
+    let dragObj;
+    loop(data, dragKey, (item, index, arr) => {
+      arr.splice(index, 1);
+      dragObj = item;
+    });
+
+    if (!info.dropToGap) {
+      // Drop on the content
+      loop(data, dropKey, (item) => {
+        item.children = item.children || []; // where to insert 示例添加到头部，可以是随意位置
+
+        item.children.unshift(dragObj);
+      });
+    } else if (
+      (info.node.props.children || []).length > 0 && // Has children
+      info.node.props.expanded && // Is expanded
+      dropPosition === 1 // On the bottom gap
+    ) {
+      loop(data, dropKey, (item) => {
+        item.children = item.children || []; // where to insert 示例添加到头部，可以是随意位置
+
+        item.children.unshift(dragObj); // in previous version, we use item.children.push(dragObj) to insert the
+        // item to the tail of the children
+      });
+    } else {
+      let ar = [];
+      let i;
+      loop(data, dropKey, (_item, index, arr) => {
+        ar = arr;
+        i = index;
+      });
+
+      if (dropPosition === -1) {
+        ar.splice(i, 0, dragObj);
+      } else {
+        ar.splice(i + 1, 0, dragObj);
+      }
+    }
+
+    setGDate(data);
+  };
+
   return (
     <Tree
+      className="tree-edit"
       style={{width: 200}}
       draggable
       expandedKeys={['1', '2']}
-      onCheck={(checkedKeys, e) => {
-        // const { bool, checkedNodes, node, event, halfCheckedKeys } = e;
-        console.log('onCheck', checkedKeys, e );
-      }}
-      onDrop={
-        (params) => {
-          console.log('onDrop', params);
-        }
-      }
+      onCheck={expandedKeys}
+      onDrop={onDrop}
     >
-      <Tree.TreeNode
-        key="1"
-        autoExpandParent
-        expanded
-        title={
-          <div>
-            <span>地段</span>
-            <Tooltip
-              trigger="click"
-              placement="bottomRight"
-              title={
-                <div>
-                  <div>二级目录</div>
-                  <div>删除</div>
-                </div>
-              }
+      {
+        gDate.map((item) => {
+          return (
+            <Tree.TreeNode
+              key={item.key}
+              title={item.title}
             >
-              <span>...</span>
-            </Tooltip>
-          </div>
-        }
-      >
-        <Tree.TreeNode
-          key="1-1"
-          autoExpandParent
-          title={
-            <div>
-              <Input style={{width:100}} size="small" inline value={"楼盘地图"} />
-              <span>...</span>
-            </div>
-          }
-        />
-        <Tree.TreeNode
-          key="1-2"
-          title={
-            <div>1-2</div>
-          }
-        />
-      </Tree.TreeNode>
-      <Tree.TreeNode
-        key="2"
-        title={
-          <div>2</div>
-        }
-      >
-        <Tree.TreeNode
-          key="2-1"
-          title={
-            <div>2-1</div>
-          }
-        />
-        <Tree.TreeNode
-          key="2-2"
-          title={
-            <div>2-2</div>
-          }
-        />
-      </Tree.TreeNode>
+              {
+                item.children ? item.children.map(sub => (
+                  <Tree.TreeNode
+                    key={sub.key}
+                    title={sub.title}
+                  />
+                )) : null
+              }
+            </Tree.TreeNode>
+          )
+        })
+      }
     </Tree>
   )
 }
